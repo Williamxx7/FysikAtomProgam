@@ -4,5 +4,5 @@ function setup() {
 
 function draw() {
   background(220);
-  print("2")
+  print("u gay")
 }
