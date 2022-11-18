@@ -61,4 +61,15 @@ function keyReleased() {
   } else {
     value = 0;
   }
+
+  if (keyCode == 40&&x>52) {
+    x=x-35;
+    console.log(x)
+  } else {
+    value = 0;
+  }
+
+
+
+
 }
