@@ -1,15 +1,21 @@
 let r =  1;
 let x= 52
+let b = 0
+let circle1 = 0
+let circle2 = 0
+let circle3 = 0
+let circle4 = 0
+let circle5 = 0
 
 
 
 function setup(){
   createCanvas(1920,975)
-  
   angleMode(DEGREES)
   fill(0,0,100)
 
 }
+
 
 function draw(){
   background(0,0,100)
@@ -42,12 +48,17 @@ function draw(){
 
   stroke(0)
   strokeWeight(3)
-  line(49,49,55,55)
+  line(x-3,x-3,x+3,x+3)
 
-  if(keyIsPressed){
-    s = true
-  }
+ 
+}
 
-
+function keyReleased() {
   
+  if (keyCode == 38&&x<192) {
+    x=x+35;
+    console.log(x)
+  } else {
+    value = 0;
+  }
 }
