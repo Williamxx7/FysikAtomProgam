@@ -44,10 +44,10 @@ function draw(){
   strokeWeight(3)
   line(49,49,55,55)
 
-  if(keyIsPressed === true){
-    x+=25
-  }else {
-    x+=0
+  if(keyIsPressed){
+    s = true
   }
 
+
+  
 }
