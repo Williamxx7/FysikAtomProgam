@@ -72,27 +72,22 @@ function keyReleased() {
     
     if(circlecount == 0){
       emisson = 0
-      console.log(emisson)
     } 
 
     if(circlecount == 1){
       emisson = circle2-circle1
-      console.log(emisson)
     } 
 
     if(circlecount == 2){
       emisson = circle3-circle2
-      console.log(emisson)
     } 
 
     if(circlecount == 3){
       emisson = circle4-circle3
-      console.log(emisson)
     } 
 
     if(circlecount == 4){
       emisson = circle5-circle4
-      console.log(emisson)
     } 
 
    
@@ -108,27 +103,22 @@ function keyReleased() {
 
     if(circlecount == 0){
       emisson = 0
-      console.log(emisson)
     } 
 
     if(circlecount == 1){
       emisson = circle2-circle1
-      console.log(emisson)
     } 
 
     if(circlecount == 2){
       emisson = circle3-circle2
-      console.log(emisson)
     } 
 
     if(circlecount == 3){
       emisson = circle4-circle3
-      console.log(emisson)
     } 
 
     if(circlecount == 4){
       emisson = circle5-circle4
-      console.log(emisson)
     } 
 
 
