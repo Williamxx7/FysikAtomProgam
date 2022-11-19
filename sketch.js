@@ -39,22 +39,15 @@ function draw(){
   noFill()
   r++;
 
-  
+  let elk = 150
+  let colorlist2 =['red', 'yellow', 'green', 'blue', 'purple'] 
 
-  stroke(255,0,0)
-  ellipse(0,0,150,150)
-
-  stroke(255,255,0)
-  ellipse(0,0,250,250)
+  for(let ig = 0; ig<5; ig++){
+  stroke(colorlist2[ig])
+  ellipse(0,0,elk,elk)
+  elk+= 100
+  }
   
-  stroke(0,255,0)
-  ellipse(0,0,350,350)
-  
-  stroke(0,0,255)
-  ellipse(0,0,450,450)
-
-  stroke(255,0,255)
-  ellipse(0,0,550,550)
 
   fill(255,255,255)
   stroke(255,255,255)
@@ -103,6 +96,7 @@ function draw(){
   line(x-3,x-3,x+3,x+3)
 
   
+
  
 }
 
