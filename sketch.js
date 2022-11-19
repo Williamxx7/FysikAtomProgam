@@ -41,11 +41,12 @@ function draw(){
 
   let elk = 150
   let colorlist2 =['red', 'yellow', 'green', 'blue', 'purple'] 
+  strokeWeight(4)
 
   for(let ig = 0; ig<5; ig++){
-  stroke(colorlist2[ig])
-  ellipse(0,0,elk,elk)
-  elk+= 100
+    stroke(colorlist2[ig])
+    ellipse(0,0,elk,elk)
+    elk+= 100
   }
   
 
@@ -86,7 +87,7 @@ function draw(){
   }
   
   
-    rotate(r)
+  rotate(r)
   fill(255,255,255)
   noStroke()
   ellipse(x,x,25,25)
@@ -95,24 +96,10 @@ function draw(){
   strokeWeight(3)
   line(x-3,x-3,x+3,x+3)
 
-  
-
  
 }
 
 function keyReleased() {
-  /*
-  switch (key) {
-    case value:
-      
-  
-    case 1:
-      dff
-      break;
-    default:
-      break;
-  }
-*/
 
   if (keyCode == 38&&x<192) {
     x=x+35;
@@ -199,3 +186,18 @@ function keyReleased() {
 
 
 }
+
+
+
+
+  /*
+  switch (key) {
+    case value:
+  
+    case 1:
+      dff
+      break;
+    default:
+      break;
+  }
+*/
