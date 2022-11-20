@@ -22,6 +22,8 @@ let numberx = 0
 
 let mat = (-6.63*1/10000000000000000000000000000000000)*(3.000000000*100000000)*(1.097000000*1/10000000)
 
+let button1;
+
 function setup(){
   createCanvas(1440,1000)
   angleMode(DEGREES)
@@ -49,6 +51,10 @@ function draw(){
     elk+= 100
   }
   
+  button1 = createButton('+1')
+  button1.position(width/2, height/2);
+  button1.mousePressed(button1cliked)
+
 
   fill(255,255,255)
   stroke(255,255,255)
@@ -99,7 +105,20 @@ function draw(){
  
 }
 
+
+function button1cliked (){
+  if(x<192){
+  x=x+35
+  circlecount += 1
+  et = true
+  pet = false
+}
+}
+
+
 function keyReleased() {
+
+  print(keyCode)
 
   if (keyCode == 38&&x<192) {
     x=x+35;
