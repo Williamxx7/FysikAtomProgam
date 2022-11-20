@@ -23,6 +23,11 @@ let numberx = 0
 let mat = (-6.63*1/10000000000000000000000000000000000)*(3.000000000*100000000)*(1.097000000*1/10000000)
 
 let button1;
+let button2;
+let button3;
+let button4;
+let button5;
+
 
 function setup(){
   createCanvas(1440,1000)
@@ -51,10 +56,25 @@ function draw(){
     elk+= 100
   }
   
-  button1 = createButton('+1')
-  button1.position(width/2, height/2);
+  button1 = createButton('1')
+  button1.position(width/2-12.5, height/2-105);
   button1.mousePressed(button1cliked)
 
+  button2 = createButton('2')
+  button2.position(width/2-12.5, height/2-155);
+  button2.mousePressed()
+
+  button3 = createButton('3')
+  button3.position(width/2-12.5, height/2-205);
+  button3.mousePressed()
+
+  button4 = createButton('4')
+  button4.position(width/2-12.5, height/2-255);
+  button4.mousePressed()
+
+  button5 = createButton('5')
+  button5.position(width/2-12.5, height/2-305);
+  button5.mousePressed()
 
   fill(255,255,255)
   stroke(255,255,255)
@@ -114,6 +134,10 @@ function button1cliked (){
   pet = false
 }
 }
+
+
+
+
 
 
 function keyReleased() {
