@@ -1,39 +1,92 @@
 let r =  1;
 let x= 52
+let b = 0
 
+let circlecount = 1
+let et = false
+let pet = false  
+let numberx = 0
+
+let mat = (-6.63*1/10000000000000000000000000000000000)*(3.000000000*100000000)*(1.097000000*1/10000000)
+
+let lastcircle = -13.6
+let thiscircle = -13.6
+let calc 
 
 
 function setup(){
-  createCanvas(1920,975)
-  
+  createCanvas(1536,864)
   angleMode(DEGREES)
   fill(0,0,100)
 
 }
 
+
 function draw(){
-  background(0,0,100)
+  background(0,0,0)
   translate(width/2 , height/2)
   fill(255,0,0)
   noStroke()
   ellipse(0,0,70,70)
   noFill()
-  r++;
 
-  stroke(255,0,0)
-  ellipse(0,0,150,150)
+  let colorlist2 =['red', 'yellow', 'green', 'blue', 'purple', 'orange'] 
+  strokeWeight(4)
 
-  stroke(255,255,0)
-  ellipse(0,0,250,250)
+  for(let elk = 0; elk<6; elk++){
+    stroke(colorlist2[elk])
+    ellipse(0,0,(elk+150+(100*elk)),(elk+150+(100*elk)))
+  }
   
-  stroke(0,255,0)
-  ellipse(0,0,350,350)
-  
-  stroke(0,0,255)
-  ellipse(0,0,450,450)
 
-  stroke(255,0,255)
-  ellipse(0,0,550,550)
+  noStroke()
+  button1 = createButton('1')
+  button1.position(width/2-12.5, height/2-105);
+  button1.mousePressed(button1cliked)
+
+  button2 = createButton('2')
+  button2.position(width/2-12.5, height/2-155);
+  button2.mousePressed(button2cliked)
+
+  button3 = createButton('3')
+  button3.position(width/2-12.5, height/2-205);
+  button3.mousePressed(button3cliked)
+
+  button4 = createButton('4')
+  button4.position(width/2-12.5, height/2-255);
+  button4.mousePressed(button4cliked)
+
+  button5 = createButton('5')
+  button5.position(width/2-12.5, height/2-305);
+  button5.mousePressed(button5cliked)
+  
+  button6 = createButton('6')
+  button6.position(width/2-12.5, height/2-355);
+  button6.mousePressed(button6cliked)
+
+  fill(255,255,255)
+  stroke(255,255,255)
+  
+  strokeWeight(1)
+  textSize(20)
+  
+  if(et == true){
+    text("Absorption: Efoton = ", (-width/2.2)-40,(-height/2.3)-25)
+    numberx=150
+    text(calc + " J", (-width/2.2)+ numberx,(-height/2.3)-24)
+  } 
+  else if(pet == true){
+    text("Emission: Efoton = ", (-width/2.2)-40,(-height/2.3)-25)
+    numberx=135
+    text(calc+" J", (-width/2.2)+ numberx,(-height/2.3)-24)
+  } else{text("Absorption: Efoton = 0", (-width/2.2)-40,(-height/2.3)-25)}
+
+  text("Brintatomets energi med elektronen: ", (-width/2.2)-40, -height/2.4)
+
+  text(mat*1/(circlecount*circlecount)+ " J", (-width/3.8), -height/2.4)
+  
+
+  r++
 
   rotate(r)
   fill(255,255,255)
@@ -42,12 +95,144 @@ function draw(){
 
   stroke(0)
   strokeWeight(3)
-  line(49,49,55,55)
+  //line(x-3,x-3,x+3,x+3)
 
-  if(keyIsPressed === true){
-    x+=25
-  }else {
-    x+=0
+
+
+  
+ 
+}
+
+
+
+function button1cliked(){
+  if(button1 && x == 52){
+  }
+  else if(button1 && x>52){
+    thiscircle = -13.6
+    calc = lastcircle - thiscircle 
+    x= 52
+    circlecount = 1
+    et = false
+    pet = true
+    lastcircle = -13.6
+  }
+} 
+
+function button2cliked(){
+  if(button2 && x<55){
+    thiscircle = -3.4
+    calc = thiscircle - lastcircle 
+    console.log(calc)
+    x = 52+35
+    circlecount = 2
+    et = true
+    pet = false
+    lastcircle = 3.4
+}
+  else if(button2 && x>55){
+    thiscircle = 3.4
+    calc = lastcircle - thiscircle 
+    console.log(calc)
+    x = 52+36
+    circlecount = 2
+    et = false
+    pet = true
+    lastcircle = 3.4
+  }
+}
+
+function button3cliked(){
+  if(button3 && x<52+36*2){
+    thiscircle = -1.5
+    calc = thiscircle -lastcircle
+    console.log(calc)
+    x = 52+36*2
+    circlecount = 3
+    et = true
+    pet = false
+    lastcircle = -1.5
+    
+}
+  else if(button3 && x>52+36*2){
+    thiscircle = -1.5
+    calc = lastcircle - thiscircle 
+    console.log(calc)
+    x = 52+36*2
+    circlecount = 3
+    et = false
+    pet = true
+    lastcircle = -1.5
+  }
+}
+
+
+function button4cliked(){
+  if(button4 && x<52+36*3){
+    thiscircle = -0.85
+    calc = thiscircle-lastcircle 
+    x = 52+36*3
+    circlecount = 4
+    et = true
+    pet = false
+    lastcircle = -0.85
+}
+  else if(button2 && x>52+36*3){
+    thiscircle = -0.85
+    calc = lastcircle - thiscircle 
+    x = 52+36*3
+    circlecount = 4
+    et = false
+    pet = true
+    lastcircle = -0.85
+  }
+}
+
+
+function button5cliked(){
+  if(button3 && x<52+36*4){
+    thiscircle = -0.54
+    calc = thiscircle - lastcircle  
+    x = 52+36*4
+    circlecount = 5
+    et = true
+    pet = false
+    lastcircle = -0.54
+}
+  else if(button2 && x>52+36*4){
+    thiscircle = -0.54
+    calc = lastcircle - thiscircle 
+    x = 52+36*4
+    circlecount = 5
+    et = false
+    pet = true
+    lastcircle = -0.54
+    
+  }
+}
+
+
+function button6cliked(){
+  if(button6 && x<52+36*5){
+    thiscircle = -0.38
+    calc = thiscircle - lastcircle  
+    x = 52+36*5
+    circlecount = 6
+    et = true
+    pet = false
+    lastcircle = -0.38
+}
+  else if(button6 && x>52+36*5){
+    thiscircle = -0.38
+    calc = lastcircle - thiscircle 
+    x = 52+36*5
+    circlecount = 6
+    et = false
+    pet = true
+    lastcircle = -0.38
+    
   }
 
 }
+
+
