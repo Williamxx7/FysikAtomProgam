@@ -13,9 +13,11 @@ let lastcircle = -13.6
 let thiscircle = -13.6
 let calc 
 
+let sideforskydning = 300
+
 
 function setup(){
-  createCanvas(1536,864)
+  createCanvas(1400,1000)
   angleMode(DEGREES)
   fill(0,0,100)
 
@@ -24,7 +26,7 @@ function setup(){
 
 function draw(){
   background(0,0,0)
-  translate(width/2 , height/2)
+  translate(width/2 + sideforskydning , height/2)
   fill(255,0,0)
   noStroke()
   ellipse(0,0,70,70)
@@ -38,30 +40,33 @@ function draw(){
     ellipse(0,0,(elk+150+(100*elk)),(elk+150+(100*elk)))
   }
   
+  noStroke()
+  fill(50,50,50)
+  rect(-990, -490 ,600, 980, 10)
 
   noStroke()
-  button1 = createButton('1')
-  button1.position(width/2-12.5, height/2-105);
+  button1 = createButton('E1')
+  button1.position(width/2-15 + sideforskydning, height/2-105);
   button1.mousePressed(button1cliked)
 
-  button2 = createButton('2')
-  button2.position(width/2-12.5, height/2-155);
+  button2 = createButton('E2')
+  button2.position(width/2-15 + sideforskydning, height/2-155);
   button2.mousePressed(button2cliked)
 
-  button3 = createButton('3')
-  button3.position(width/2-12.5, height/2-205);
+  button3 = createButton('E3')
+  button3.position(width/2-15 +sideforskydning, height/2-205);
   button3.mousePressed(button3cliked)
 
-  button4 = createButton('4')
-  button4.position(width/2-12.5, height/2-255);
+  button4 = createButton('E4')
+  button4.position(width/2-15+sideforskydning, height/2-255);
   button4.mousePressed(button4cliked)
 
-  button5 = createButton('5')
-  button5.position(width/2-12.5, height/2-305);
+  button5 = createButton('E5')
+  button5.position(width/2-15+sideforskydning, height/2-305);
   button5.mousePressed(button5cliked)
   
-  button6 = createButton('6')
-  button6.position(width/2-12.5, height/2-355);
+  button6 = createButton('E6')
+  button6.position(width/2-15 +sideforskydning, height/2-355);
   button6.mousePressed(button6cliked)
 
   fill(255,255,255)
@@ -71,20 +76,27 @@ function draw(){
   textSize(20)
   
   if(et == true){
-    text("Absorption: Efoton = ", (-width/2.2)-40,(-height/2.3)-25)
+    text("Absorption: Efoton = ", (-width/1.5)-40,(-height/2.5)-25)
     numberx=150
-    text(calc + " J", (-width/2.2)+ numberx,(-height/2.3)-24)
+    text(calc + " eV", (-width/1.5)+ numberx,(-height/2.5)-24)
   } 
   else if(pet == true){
-    text("Emission: Efoton = ", (-width/2.2)-40,(-height/2.3)-25)
+    text("Emission: Efoton = ", (-width/1.5)-40,(-height/2.5)-25)
     numberx=135
-    text(calc+" J", (-width/2.2)+ numberx,(-height/2.3)-24)
-  } else{text("Absorption: Efoton = 0", (-width/2.2)-40,(-height/2.3)-25)}
+    text(calc+" eV", (-width/1.5)+ numberx,(-height/2.5)-24)
+  } else{text("Absorption: Efoton = 0", (-width/1.5)-40,(-height/2.5)-25)}
 
-  text("Brintatomets energi med elektronen: ", (-width/2.2)-40, -height/2.4)
+  text("Brintatomets energi med elektronen: ", (-width/1.5)-40, -height/2.7)
 
-  text(mat*1/(circlecount*circlecount)+ " J", (-width/3.8), -height/2.4)
+  text(mat*1/(circlecount*circlecount)+ " J", (-width/2.2), -height/2.7)
   
+  text("Arbejdsspørgsmål:", (-width/1.5) -40, -height/3.5)
+  text("Hvad er brintatomets energi med elektronen på E1?", (-width/1.5) -40, -height/4)
+  text("Hvad bliver absorption hvis man går fra E1 til E3?", (-width/1.5) -40, -height/4.5 +5)
+  text("Hvad er brintatomets energi med elektronen på E5?", (-width/1.5) -40, -height/5+15)
+  text("Hvad bliver emission hvis man går fra E6 til E4?", (-width/1.5) -40, -height/5.5 +30)
+  
+
 
   r++
 
@@ -98,7 +110,8 @@ function draw(){
   //line(x-3,x-3,x+3,x+3)
 
 
-
+ 
+  
   
  
 }
