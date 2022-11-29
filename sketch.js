@@ -42,7 +42,7 @@ function draw(){
   
   noStroke()
   fill(50,50,50)
-  rect(-990, -490 ,600, 980, 10)
+  rect(-width + 410, -height +510 ,600, 980, 10)
 
   noStroke()
   button1 = createButton('E1')
