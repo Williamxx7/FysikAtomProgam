@@ -90,7 +90,7 @@ text("+", -omgx,  sin(a) * r+ 1  ,)
 
 
 if(et == true && elektronfoton > 22.5 && lol == true){
-    omgx += cos(a) * 10
+    omgx += 20
   } else if(elektronfoton <22.6 && et == true) {
     r = 75 + 50 * (circlecount-1)
     omgx = -600
@@ -99,7 +99,7 @@ if(et == true && elektronfoton > 22.5 && lol == true){
   }
 
 if(pet == true && -omgx < 500 && lolm == true){
-    omgx -= cos(a) * 10
+    omgx -= 20
     print(-omgx)
 
   } else if (pet == true && lolm == true){
