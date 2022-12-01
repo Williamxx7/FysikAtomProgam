@@ -68,9 +68,12 @@ fill(0,0,255, 245)
 
 
 
-
+if(lolm==false && lol == false){
 a %= TWO_PI
-a = 5.60
+
+  a += 0.01
+}else {a += 0}
+
 let elektronfoton = dist(cos(a) * r , sin(a) * r,-omgx, sin(a) * r  )
 ellipse(cos(a) * r , sin(a) * r,25)
 fill("white")
@@ -242,16 +245,18 @@ lolm = true
 
 function button2cliked(){
 if(button2 && r<=75){
+lol = true
 thiscircle = -3.4
 calc = thiscircle - lastcircle 
 lastcircle = -3.4
 circlecount = 2
 et = true
 pet = false
-lol = true
+
 
 }
 else if(button2 && r>75){
+lolm = true
 thiscircle = -3.4
 calc = lastcircle - thiscircle 
 lastcircle = -3.4
@@ -260,7 +265,7 @@ circlecount = 2
 et = false
 omgx = -(cos(a)*r)
 pet = true
-lolm = true
+
 }
 }
 
