@@ -18,7 +18,16 @@ let r = 75
 let sideforskydning = 300
 
 let ex = 0
-let ey = 200
+let ey = 0
+
+let omgx = -600
+let omgy = -600
+
+let efotondis = 400
+
+let lol = false
+
+let lolm = false
 
 function setup(){
 createCanvas(1400,1000)
@@ -26,10 +35,13 @@ fill(0,0,100,)
 createButtons()
 
 
+
 }
 
 
 function draw(){
+
+
 
 background("white")
 translate(width/2 + sideforskydning , height/2)
@@ -54,9 +66,54 @@ ellipse(0,0,(elk+150+(100*elk)),(elk+150+(100*elk)))
 noStroke()
 fill(0,0,255, 245)
 
+
+
+
 a %= TWO_PI
-a += 0.03
+a = 5.60
+let elektronfoton = dist(cos(a) * r , sin(a) * r,-omgx, sin(a) * r  )
 ellipse(cos(a) * r , sin(a) * r,25)
+fill("white")
+textAlign(CENTER, CENTER)
+textSize(35)
+text("-", cos(a) * r , sin(a) * r )
+
+fill("blue")
+ellipse(-omgx,  sin(a) * r  , 20)
+fill("white")
+textSize(15)
+text("+", -omgx,  sin(a) * r+ 1  ,)
+
+
+
+if(et == true && elektronfoton > 22.5 && lol == true){
+    omgx += cos(a) * 10
+  } else if(elektronfoton <22.6 && et == true) {
+    r = 75 + 50 * (circlecount-1)
+    omgx = -600
+    lol = false 
+    
+  }
+
+if(pet == true && -omgx < 500 && lolm == true){
+    omgx -= cos(a) * 10
+    print(-omgx)
+
+  } else if (pet == true && lolm == true){
+    r = 75 + 50 * (circlecount-1)
+    omgx = -600
+    lolm = false
+    
+  }
+
+
+
+/*
+else {
+  efotondis = 400 
+  omgy = 0
+}
+*/
 
 
 fill(255,255,255)
@@ -68,19 +125,13 @@ mattext()
 arbejdsspørgsmål()
 foton()
 
+/*
+fill("green")
+ellipse(omgx - 400, omgy - 400,25)
 
-
-
-
-
-fill(0,255,0)
-ellipse(ex,ey,25)
-ey += sin(a) * r / 6 
-ex += cos(a) * r / 6
-
-
-
-
+omgx += cos(a)*r/100
+omgy += sin(a)*r/100
+*/
 
 }
 
@@ -89,16 +140,18 @@ ex += cos(a) * r / 6
 
 function mattext(){
 
+  textAlign(LEFT, CENTER)
+
   if(et == true){
     text("Absorption: Efoton = ", (-width/1.5)-40,(-height/2.5)-25)
     numberx=150
-    text(calc + " eV", (-width/1.5)+ numberx,(-height/2.5)-24)
+    text(calc + " eV", (-width/1.8),(-height/2.5)-24)
   } 
   else if(pet == true){
     text("Emission: Efoton = ", (-width/1.5)-40,(-height/2.5)-25)
     numberx=135
-    text(calc+" eV", (-width/1.5)+ numberx,(-height/2.5)-24)
-  } else{text("Absorption: Efoton = 0", (-width/1.5)-40,(-height/2.5)-25)}
+    text(calc+" eV", (-width/1.8),(-height/2.5)-25)
+  } else{text("Efoton = -13,6", (-width/1.5)-40,(-height/2.5)-25)}
 
   text("Brintatomets energi med elektronen: ", (-width/1.5)-40, -height/2.7)
 
@@ -171,127 +224,143 @@ function createButtons(){
 
 function button1cliked(){
 if(button1 && r == 52){
+  et = true
+  pet = false
+  lol = true
 }
 else if(button1 && r>52){
 thiscircle = -13.6
 calc = lastcircle - thiscircle 
-r = 75
+
 circlecount = 1
 et = false
+omgx = -(cos(a)*r)
 pet = true
 lastcircle = -13.6
+lolm = true
 }
 } 
 
 function button2cliked(){
-if(button2 && r<55){
+if(button2 && r<=75){
 thiscircle = -3.4
 calc = thiscircle - lastcircle 
-console.log(calc)
-r = 75 + 50
+lastcircle = -3.4
 circlecount = 2
 et = true
 pet = false
-lastcircle = 3.4
+lol = true
+
 }
-else if(button2 && r>55){
-thiscircle = 3.4
+else if(button2 && r>75){
+thiscircle = -3.4
 calc = lastcircle - thiscircle 
+lastcircle = -3.4
 console.log(calc)
-r = 75 + 50
 circlecount = 2
 et = false
+omgx = -(cos(a)*r)
 pet = true
-lastcircle = 3.4
+lolm = true
 }
 }
 
 function button3cliked(){
-if(button3 && r<52+36*2){
+if(button3 && r<=175){
 thiscircle = -1.5
-calc = thiscircle -lastcircle
+calc = thiscircle - lastcircle
 console.log(calc)
-r = 75 + 50*2
 circlecount = 3
 et = true
 pet = false
 lastcircle = -1.5
+lol = true
 }
-else if(button3 && r>52+36*2){
+else if(button3 && r>175){
 thiscircle = -1.5
 calc = lastcircle - thiscircle 
 console.log(calc)
-r = 75 + 50*2
+
 circlecount = 3
 et = false
+omgx = -(cos(a)*r)
 pet = true
 lastcircle = -1.5
+lolm = true
 }
 }
 
 
 function button4cliked(){
-if(button4 && r<52+36*3){
+if(button4 &&  r<=225){
 thiscircle = -0.85
 calc = thiscircle-lastcircle 
-r = 75 + 50*3
 circlecount = 4
 et = true
 pet = false
 lastcircle = -0.85
+lol = true
 }
-else if(button2 && r>52+36*3){
+else if(button2 && r>225){
 thiscircle = -0.85
 calc = lastcircle - thiscircle 
-r = 75 + 50*3
 circlecount = 4
+
 et = false
+omgx = -(cos(a)*r)
 pet = true
 lastcircle = -0.85
+lolm = true
 }
 }
 
 
 function button5cliked(){
-if(button3 && r<52+36*4){
+if(button3 && r<=275){
 thiscircle = -0.54
 calc = thiscircle - lastcircle 
-r = 75 + 50*4
+
 circlecount = 5
 et = true
 pet = false
 lastcircle = -0.54
+lol = true
 }
-else if(button2 && r>52+36*4){
+else if(button2 && r>275){
 thiscircle = -0.54
 calc = lastcircle - thiscircle 
-r = 75 + 50*4
+
 circlecount = 5
 et = false
+omgx = -(cos(a)*r)
 pet = true
 lastcircle = -0.54
+lolm = true
 }
 }
 
 
 function button6cliked(){
-if(button6 && r<52+36*5){
+if(button6 && r<=325){
 thiscircle = -0.38
 calc = thiscircle - lastcircle 
-r = 75 + 50*5
+
 circlecount = 6
 et = true
 pet = false
 lastcircle = -0.38
+lol = true
 }
-else if(button6 && r>52+36*5){
+else if(button6 && r>325){
 thiscircle = -0.38
 calc = lastcircle - thiscircle 
-r = 75 + 50*5
+
 circlecount = 6
 et = false
+omgx = -(cos(a)*r)
 pet = true
 lastcircle = -0.38
+lolm = true
 }
 
 }
