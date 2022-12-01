@@ -219,7 +219,6 @@ function createButtons(){
 }
 
 
-// ikke spagetti
 
 
 function button1cliked(){
