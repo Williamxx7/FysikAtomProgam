@@ -18,9 +18,10 @@ let r = 75
 let sideforskydning = 300
 
 let ex = 0
-let ey = 200
+let ey = 0
 
-let textwith = (-width/2)-40
+let omgx = 0
+let omgy = 0
 
 function setup(){
 createCanvas(1400,1000)
@@ -76,25 +77,13 @@ mattext()
 arbejdsspørgsmål()
 foton()
 
-
-
-
 /*
-if (1==1){
+fill("green")
+ellipse(omgx - 400, omgy - 400,25)
 
-ex = cos(a) * r
-ey = sin(a) * r
-
-a = 0
-
-fill(0,255,0)
-ellipse(ex,ey,15)
-
-
-}
+omgx += cos(a)*r/100
+omgy += sin(a)*r/100
 */
-
-
 
 }
 
@@ -103,20 +92,22 @@ ellipse(ex,ey,15)
 
 function mattext(){
 
+  textAlign(LEFT, CENTER)
+
   if(et == true){
-    text("Absorption: Efoton = ", textwith,(-height/3)-25)
+    text("Absorption: Efoton = ", (-width/1.5)-40,(-height/2.5)-25)
     numberx=150
-    text(calc + " eV", (-width/2.5)+ numberx,(-height/2.5)-24)
+    text(calc + " eV", (-width/1.8),(-height/2.5)-24)
   } 
   else if(pet == true){
-    text("Emission: Efoton = ", textwith,(-height/2.5)-25)
+    text("Emission: Efoton = ", (-width/1.5)-40,(-height/2.5)-25)
     numberx=135
-    text(calc+" eV", (-width/2.5)+ numberx,(-height/2.9)-24)
-  } else{text("Absorption: Efoton = 0", (-width/1.8)-40,(-height/2.5)-25)}
+    text(calc+" eV", (-width/1.8),(-height/2.5)-25)
+  } else{text("Efoton = -13,6", (-width/1.5)-40,(-height/2.5)-25)}
 
-  text("Brintatomets energi med elektronen: ", (-width/1.8)-40, -height/2.7)
+  text("Brintatomets energi med elektronen: ", (-width/1.5)-40, -height/2.7)
 
-  text(mat*1/(circlecount*circlecount)+ " J", (-width/2.5), -height/2.7)
+  text(mat*1/(circlecount*circlecount)+ " J", (-width/2.2), -height/2.7)
 
 }
 
@@ -125,11 +116,11 @@ function mattext(){
 
 function arbejdsspørgsmål(){
 
-  text("Arbejdsspørgsmål:", (-width/2.1) -40, -height/3.5)
-  text("Hvad er brintatomets energi med elektronen på E1?", (-width/2.1) -40, -height/4)
-  text("Hvad bliver absorption hvis man går fra E1 til E3?", (-width/2.1) -40, -height/4.5 +5)
-  text("Hvad er brintatomets energi med elektronen på E5?", (-width/2.1) -40, -height/5+15)
-  text("Hvad bliver emission hvis man går fra E6 til E4?", (-width/2.1) -40, -height/5.5 +30)
+  text("Arbejdsspørgsmål:", (-width/1.5) -40, -height/3.5)
+  text("Hvad er brintatomets energi med elektronen på E1?", (-width/1.5) -40, -height/4)
+  text("Hvad bliver absorption hvis man går fra E1 til E3?", (-width/1.5) -40, -height/4.5 +5)
+  text("Hvad er brintatomets energi med elektronen på E5?", (-width/1.5) -40, -height/5+15)
+  text("Hvad bliver emission hvis man går fra E6 til E4?", (-width/1.5) -40, -height/5.5 +30)
   
 
 }
@@ -185,6 +176,8 @@ function createButtons(){
 
 function button1cliked(){
 if(button1 && r == 52){
+  et = true
+  pet = false
 }
 else if(button1 && r>52){
 thiscircle = -13.6
@@ -198,7 +191,7 @@ lastcircle = -13.6
 } 
 
 function button2cliked(){
-if(button2 && r<55){
+if(button2 && r==75){
 thiscircle = -3.4
 calc = thiscircle - lastcircle 
 console.log(calc)
@@ -208,7 +201,7 @@ et = true
 pet = false
 lastcircle = 3.4
 }
-else if(button2 && r>55){
+else if(button2 && r>75){
 thiscircle = 3.4
 calc = lastcircle - thiscircle 
 console.log(calc)
@@ -221,7 +214,7 @@ lastcircle = 3.4
 }
 
 function button3cliked(){
-if(button3 && r<52+36*2){
+if(button3 && r<=175){
 thiscircle = -1.5
 calc = thiscircle -lastcircle
 console.log(calc)
@@ -231,7 +224,7 @@ et = true
 pet = false
 lastcircle = -1.5
 }
-else if(button3 && r>52+36*2){
+else if(button3 && r>175){
 thiscircle = -1.5
 calc = lastcircle - thiscircle 
 console.log(calc)
@@ -245,7 +238,7 @@ lastcircle = -1.5
 
 
 function button4cliked(){
-if(button4 && r<52+36*3){
+if(button4 &&  r<=225){
 thiscircle = -0.85
 calc = thiscircle-lastcircle 
 r = 75 + 50*3
@@ -254,7 +247,7 @@ et = true
 pet = false
 lastcircle = -0.85
 }
-else if(button2 && r>52+36*3){
+else if(button2 && r>225){
 thiscircle = -0.85
 calc = lastcircle - thiscircle 
 r = 75 + 50*3
@@ -267,7 +260,7 @@ lastcircle = -0.85
 
 
 function button5cliked(){
-if(button3 && r<52+36*4){
+if(button3 && r<=275){
 thiscircle = -0.54
 calc = thiscircle - lastcircle 
 r = 75 + 50*4
@@ -276,7 +269,7 @@ et = true
 pet = false
 lastcircle = -0.54
 }
-else if(button2 && r>52+36*4){
+else if(button2 && r>275){
 thiscircle = -0.54
 calc = lastcircle - thiscircle 
 r = 75 + 50*4
@@ -289,7 +282,7 @@ lastcircle = -0.54
 
 
 function button6cliked(){
-if(button6 && r<52+36*5){
+if(button6 && r<=325){
 thiscircle = -0.38
 calc = thiscircle - lastcircle 
 r = 75 + 50*5
@@ -298,7 +291,7 @@ et = true
 pet = false
 lastcircle = -0.38
 }
-else if(button6 && r>52+36*5){
+else if(button6 && r>325){
 thiscircle = -0.38
 calc = lastcircle - thiscircle 
 r = 75 + 50*5
