@@ -219,9 +219,6 @@ function createButtons(){
 }
 
 
-// ikke spagetti
-
-
 function button1cliked(){
 if(button1 && r == 52){
   et = true
