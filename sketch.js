@@ -216,7 +216,7 @@ lastcircle = 3.4
 function button3cliked(){
 if(button3 && r<=175){
 thiscircle = -1.5
-calc = thiscircle -lastcircle
+calc = thiscircle - lastcircle
 console.log(calc)
 r = 75 + 50*2
 circlecount = 3
